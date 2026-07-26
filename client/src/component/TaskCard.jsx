@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export function TaskCard({ task }) {
   const navigate = useNavigate();
@@ -52,9 +53,16 @@ export function TaskCard({ task }) {
       </div>
 
     </div>
-    
-  
-  
-  
   );
 }
+
+TaskCard.propTypes = {
+    task: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        patente: PropTypes.string.isRequired,
+        modelo: PropTypes.string,
+        foto: PropTypes.string,
+        Registro_Creado: PropTypes.string.isRequired,
+        Registro_Actualizado: PropTypes.string.isRequired
+    }).isRequired
+};

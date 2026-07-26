@@ -21,7 +21,7 @@ export const deleteTask = (id) => tasksApi.delete('/' + id + '/')
 
 export const updateTask = async (id, taskFormData) => {
     // taskFormData ya es un FormData que viene de TaskFormPage
-    await tasksApi.put(`/${id}/`, taskFormData, {
+    await tasksApi.patch(`/${id}/`, taskFormData, {
         headers: {
             "Content-Type": "multipart/form-data"
         }

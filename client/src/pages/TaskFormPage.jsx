@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { useNavigate, useParams } from "react-router-dom";
 
 export function TaskFormpage() {
-  const { register, handleSubmit, formState: { errors }, setValue, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, setValue,  } = useForm();
   const [showMore, setShowMore] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
