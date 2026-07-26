@@ -4,3 +4,4 @@ django-cors-headers
 coreapi
 setuptools==69.5.1
 Pillow
+legacy-cgi
