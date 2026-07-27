@@ -17,6 +17,7 @@ export function TaskFormpage() {
     const formData = new FormData();
     formData.append('patente', data.patente);
     formData.append('modelo', data.modelo);
+    formData.append('estado', data.estado || 'Incautado');
     if (data.info_adicional) formData.append('info_adicional', data.info_adicional);
     
     // Solo enviamos la foto si se seleccionó un archivo nuevo (data.foto[0])
@@ -53,6 +54,7 @@ export function TaskFormpage() {
           const { data } = await getTask(params.id);
           setValue("patente", data.patente);
           setValue("modelo", data.modelo);
+          setValue("estado", data.estado || "Incautado");
           setValue("info_adicional", data.info_adicional);
           // Mostrar si hay mas datos
           if (data.info_adicional || data.foto) {
@@ -105,6 +107,18 @@ export function TaskFormpage() {
             className="bg-zinc-900 border border-zinc-700 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white p-3 rounded-lg block w-full transition-colors"
           />
           {errors.modelo && <span className="text-red-500 text-sm mt-1">Este campo es requerido</span>}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-zinc-400 mb-1">Estado</label>
+          <select
+            {...register("estado")}
+            className="bg-zinc-900 border border-zinc-700 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white p-3 rounded-lg block w-full transition-colors"
+          >
+            <option value="Incautado">Incautado</option>
+            <option value="En Proceso">En Proceso</option>
+            <option value="Liberado">Liberado</option>
+          </select>
         </div>
 
         <button 
